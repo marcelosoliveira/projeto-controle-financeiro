@@ -23,6 +23,7 @@ import com.algamoney.api.event.RecursoCriadoEvent;
 import com.algamoney.api.model.Lancamento;
 import com.algamoney.api.repository.LancamentoRepository;
 import com.algamoney.api.repository.filter.LancamentoFilter;
+import com.algamoney.api.repository.projection.ResumoLancamento;
 import com.algamoney.api.service.LancamentoService;
 
 import lombok.AllArgsConstructor;
@@ -42,6 +43,14 @@ public class LancamentoController {
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
 	public ResponseEntity<Page<Lancamento>> pesquisar(LancamentoFilter lancamentoFilter, Pageable pageable) {
 		Page<Lancamento> listLancamento = lancamentoRepository.filtrar(lancamentoFilter, pageable);
+		
+		return ResponseEntity.ok(listLancamento);
+	}
+	
+	@GetMapping(params = "resumo")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
+	public ResponseEntity<Page<ResumoLancamento>> resumir(LancamentoFilter lancamentoFilter, Pageable pageable) {
+		Page<ResumoLancamento> listLancamento = lancamentoRepository.resumir(lancamentoFilter, pageable);
 		
 		return ResponseEntity.ok(listLancamento);
 	}
