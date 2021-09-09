@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.algamoney.api.event.RecursoCriadoEvent;
@@ -40,8 +41,8 @@ public class PessoaController {
 
 	@GetMapping
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_PESSOA') and #oauth2.hasScope('read')")
-	public List<Pessoa> listAllPessoas() {
-		return pessoaRepository.findAll();
+	public List<Pessoa> listAllPessoas(@RequestParam(value = "nome", defaultValue = "", required = false) String nome) {
+		return pessoaRepository.findByNome(nome);
 	}
 
 	@PostMapping
