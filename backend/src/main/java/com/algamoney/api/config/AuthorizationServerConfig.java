@@ -23,7 +23,7 @@ import com.algamoney.api.config.token.CustomTokenEnhancer;
 import lombok.AllArgsConstructor;
 
 @SuppressWarnings("deprecation")
-//@Profile("oauth-security")
+@Profile("oauth-security")
 @Configuration
 @EnableAuthorizationServer
 @AllArgsConstructor

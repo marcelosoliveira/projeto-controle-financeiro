@@ -21,7 +21,7 @@ import org.springframework.security.oauth2.provider.expression.OAuth2MethodSecur
 import lombok.AllArgsConstructor;
 
 @SuppressWarnings("deprecation")
-//@Profile("oauth-security")
+@Profile("oauth-security")
 @Configuration
 @EnableWebSecurity
 @EnableResourceServer
