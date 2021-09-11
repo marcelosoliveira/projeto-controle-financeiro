@@ -7,13 +7,15 @@ import { HelloComponent } from './hello/hello.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AddNameComponent } from './add-name/add-name.component';
 import { FormsModule } from '@angular/forms';
+import { PersonCardComponent } from './person-card/person-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
     WelcomeComponent,
-    AddNameComponent
+    AddNameComponent,
+    PersonCardComponent
   ],
   imports: [
     BrowserModule,
