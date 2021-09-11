@@ -7,12 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNameComponent implements OnInit {
 
-  public ultimoId: number = 0;
-
-  public name: string = "Marcelo dos Santos";
-
-  public add: boolean = false;
-
   public persons: any[] = [];
 
   constructor() { };
@@ -20,12 +14,8 @@ export class AddNameComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addName(name: string): void {
-    this.add = true;
-    this.persons = [
-      ...this.persons, 
-      { id: ++this.ultimoId, name }
-    ];
+  addIt(person: any): void {
+    this.persons.push(person);
   }
 
 }
