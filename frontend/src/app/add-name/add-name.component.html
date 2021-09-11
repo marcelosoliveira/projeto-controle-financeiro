@@ -1,20 +1,25 @@
 <div class="container">
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success" role="alert" *ngIf="add">
         Funcionário adicionado: <strong>{{ name }}</strong>
     </div>
 
     <div class="form-group">
         <label>Nome</label>
-        <input type="text" class="form-control" (input)=inputEmpty($event.target) #nameInput/>
+        <input 
+            type="text" 
+            class="form-control" 
+            [(ngModel)]="name"
+            (focus)="add = false" 
+        />
     </div>
 
     <br />
 
     <button 
-        (click)='addName(nameInput.value)' 
+        (click)='addName()' 
         type="button" 
         class="btn btn-primary"
-        [disabled]="value.length == 0"
+        [disabled]="name.length == 0"
         >
             Adicionar
     </button>

@@ -9,19 +9,15 @@ export class AddNameComponent implements OnInit {
 
   name: string = "Marcelo dos Santos"
 
-  value: any = "";
+  add: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  addName(name: string): void {
-    this.name = name;
-  }
-
-  inputEmpty({ value }: any): void {
-    this.value = value;
+  addName(): void {
+    this.add = true;
   }
 
 }
