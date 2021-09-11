@@ -8,5 +8,5 @@
         class="card-block" 
         style="padding: 10px; text-align: center;"
     >
-        {{ personCard.name }}
+        <span [ngClass]="{ 'badge': isAdmin(), 'badge-primary': !isAdmin() }">{{ personCard.name }}</span>
 </div>

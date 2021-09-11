@@ -20,6 +20,14 @@ export class PersonCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isAdmin(): boolean {
+    return this.personCard.name.toLowerCase().startsWith('m');
+  }
+
+  // getClassList(): any {
+  //   return ['badge', 'badge-primary']
+  // }
+
   getStyleCard(): object {
     return {
       // borderWidth: this.personCard.id + "px",
@@ -28,7 +36,7 @@ export class PersonCardComponent implements OnInit {
   }
 
   getColor(): string {
-    if (this.personCard.id % 2 == 0) {
+    if (this.personCard.id % 2 === 0) {
       return 'lightblue';
     } else {
       return 'lightgreen';
