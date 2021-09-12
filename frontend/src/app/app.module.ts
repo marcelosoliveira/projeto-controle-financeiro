@@ -5,6 +5,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table'
+import { TooltipModule } from 'primeng/tooltip'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { WelcomeComponent } from './components-learn/welcome/welcome.component';
 import { AddNameComponent } from './components-learn/add-name/add-name.component';
 import { PersonCardComponent } from './components-learn/person-card/person-card.component';
 import { PersonFormComponent } from './components-learn/person-form/person-form.component';
+import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { PersonFormComponent } from './components-learn/person-form/person-form.
     WelcomeComponent,
     AddNameComponent,
     PersonCardComponent,
-    PersonFormComponent
+    PersonFormComponent,
+    LancamentosPesquisaComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { PersonFormComponent } from './components-learn/person-form/person-form.
     TabViewModule,
     InputTextModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

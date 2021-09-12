@@ -33,3 +33,12 @@ label {
   width: 120px;
   text-align-last: center;
 }
+
+.col-acoes {
+  width: 120px;
+  text-align-last: center;
+}
+
+.button-fa{
+  margin-right: 10px;
+}
