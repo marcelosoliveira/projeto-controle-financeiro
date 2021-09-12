@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello/hello.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { AddNameComponent } from './add-name/add-name.component';
+import { HelloComponent } from './components/hello/hello.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AddNameComponent } from './components/add-name/add-name.component';
 import { FormsModule } from '@angular/forms';
-import { PersonCardComponent } from './person-card/person-card.component';
-import { PersonFormComponent } from './person-form/person-form.component';
+import { PersonCardComponent } from './components/person-card/person-card.component';
+import { PersonFormComponent } from './components/person-form/person-form.component';
 
 @NgModule({
   declarations: [
