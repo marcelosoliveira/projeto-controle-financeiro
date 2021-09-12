@@ -15,6 +15,9 @@ import { AddNameComponent } from './components-learn/add-name/add-name.component
 import { PersonCardComponent } from './components-learn/person-card/person-card.component';
 import { PersonFormComponent } from './components-learn/person-form/person-form.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
     AddNameComponent,
     PersonCardComponent,
     PersonFormComponent,
-    LancamentosPesquisaComponent
+    LancamentosPesquisaComponent,
+    NavbarComponent,
+    PessoasPesquisaComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,18 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
     InputTextModule,
     ButtonModule,
     TableModule,
-    TooltipModule
+    TooltipModule,
+    RouterModule.forChild([
+      {
+        path: '', redirectTo: 'lancamentos', pathMatch: 'full'
+      },
+      {
+        path: 'pessoas', component: PessoasPesquisaComponent,
+      },
+      {
+        path: 'lancamentos', component: LancamentosPesquisaComponent,
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
