@@ -18,6 +18,7 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RouterModule } from '@angular/router';
     PersonFormComponent,
     LancamentosPesquisaComponent,
     NavbarComponent,
-    PessoasPesquisaComponent
+    PessoasPesquisaComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,9 @@ import { RouterModule } from '@angular/router';
       },
       {
         path: 'lancamentos', component: LancamentosPesquisaComponent,
+      },
+      {
+        path: '**', component: NotFoundComponent,
       }
     ])
   ],
