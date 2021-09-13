@@ -15,8 +15,12 @@
 
   <ul class="navbar-menu" *ngIf="exibirMenu">
     <li class="navbar-usuario">Administrador</li>
-    <li class="navbar-menu-item" ><a [routerLink]="['/lancamentos']">Lançamentos</a></li>
-    <li class="navbar-menu-item" ><a [routerLink]="['/pessoas']">Pessoas</a></li>
+    <li class="navbar-menu-item" >
+      <a (click)="exibirMenu = false" [routerLink]="['/lancamentos']">Lançamentos</a>
+    </li>
+    <li class="navbar-menu-item" >
+      <a (click)="exibirMenu = false" [routerLink]="['/pessoas']">Pessoas</a>
+    </li>
     <li class="navbar-menu-item"><a href="#">Logout</a></li>
   </ul>
 
