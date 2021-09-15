@@ -19,6 +19,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CampoColoridoDirective } from './components-learn/directive/campo-colorido.directive';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NavbarComponent,
     PessoasPesquisaComponent,
     NotFoundComponent,
+    CampoColoridoDirective,
   ],
   imports: [
     BrowserModule,
