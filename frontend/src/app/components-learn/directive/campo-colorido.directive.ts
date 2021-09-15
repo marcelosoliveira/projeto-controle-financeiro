@@ -1,16 +1,20 @@
-import { Directive, ElementRef, HostBinding, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appCampoColorido]'
+  selector: '[appCampoColorido]',
+  exportAs: 'colorField'
 })
 export class CampoColoridoDirective {
+
+  @Input('appCampoColorido')
+  public color: string = 'green';
 
   @HostBinding('style.backgroundColor')
   private backColor!: string
 
   @HostListener('focus')
   isFocusAlternative() {
-    this.backColor = 'yellow'
+    this.backColor = this.color;
   }
 
   @HostListener('blur')

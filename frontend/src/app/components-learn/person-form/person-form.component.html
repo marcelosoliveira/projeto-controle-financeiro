@@ -10,7 +10,8 @@
         [(ngModel)]="name"
         (focus)="add = false"
         #inputName
-        appCampoColorido
+        [appCampoColorido]="'blue'"
+        #field="colorField"
     />
 </div>
 
@@ -25,4 +26,6 @@
         >
             Adicionar
     </button>
+    <button class="btn btn-primary" (click)="field.isFocusAlternative()">Color</button>
+    <button class="btn btn-primary" (click)="field.isNotFocusAlternative()">Unicolor</button>
 </div>
