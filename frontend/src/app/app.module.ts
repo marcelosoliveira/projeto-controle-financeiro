@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CampoColoridoDirective } from './components-learn/directive/campo-colorido.directive';
 import { PipeLearnComponent } from './components-learn/pipe-learn/pipe-learn.component';
+import { FormDrivenComponent } from './components-learn/form-driven/form-driven.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PipeLearnComponent } from './components-learn/pipe-learn/pipe-learn.com
     NotFoundComponent,
     CampoColoridoDirective,
     PipeLearnComponent,
+    FormDrivenComponent,
   ],
   imports: [
     BrowserModule,
