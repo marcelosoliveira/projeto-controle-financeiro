@@ -20,6 +20,7 @@ import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.co
 import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CampoColoridoDirective } from './components-learn/directive/campo-colorido.directive';
+import { PipeLearnComponent } from './components-learn/pipe-learn/pipe-learn.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CampoColoridoDirective } from './components-learn/directive/campo-color
     PessoasPesquisaComponent,
     NotFoundComponent,
     CampoColoridoDirective,
+    PipeLearnComponent,
   ],
   imports: [
     BrowserModule,
