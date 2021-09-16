@@ -1,1 +1,66 @@
-<p>form-driven works!</p>
+<div class="container">
+
+  <div class="alert alert-danger" *ngIf="userForm.invalid && userForm.dirty">
+    Insert fields all correct!
+  </div>
+
+  <form #userForm="ngForm" (ngSubmit)="save(userForm)">
+    <div class="form-group">
+      <label class="form-control-label">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        [(ngModel)]="client.name"
+        #name="ngModel"
+        required
+        minlength="7"
+      />
+
+      <div *ngIf="name.hasError('required') && name.touched" >Name is not blank!</div>
+      <div *ngIf="name.hasError('minlength') && name.touched" >Name is are complete!</div>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-control-label">Email</label>
+      <input
+        type="text"
+        name="email"
+        class="form-control"
+        [(ngModel)]="client.email"
+        required
+        email
+        #email="ngModel"
+      />
+
+      <div *ngIf="email.invalid && email.touched" >Email is not blank or invalid!</div>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-control-label">Job</label>
+      <select
+        name="job"
+        class="form-control"
+        [(ngModel)]="client.job"
+        required
+        #job="ngModel"
+      >
+        <option value="">Select</option>
+        <option *ngFor="let job of jobs" [value]="job">{{ job }}</option>
+      </select>
+
+      <div *ngIf="job.invalid && job.touched" >Select it is job!</div>
+
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!userForm.valid"
+    >
+      Salvar
+    </button>
+  </form>
+</div>
