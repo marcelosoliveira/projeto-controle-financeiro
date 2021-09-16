@@ -5,7 +5,7 @@
   </div>
 
   <form #userForm="ngForm" (ngSubmit)="save(userForm)">
-    <div class="form-group">
+    <div class="form-group" [class.has-danger]="name.invalid && name.touched">
       <label class="form-control-label">Name</label>
       <input
         type="text"
@@ -17,8 +17,10 @@
         minlength="7"
       />
 
-      <div *ngIf="name.hasError('required') && name.touched" >Name is not blank!</div>
-      <div *ngIf="name.hasError('minlength') && name.touched" >Name is are complete!</div>
+      <div *ngIf="name.hasError('required') && name.touched"
+        class="form-control-feedback">Name is not blank!</div>
+      <div *ngIf="name.hasError('minlength') && name.touched"
+        class="form-control-feedback">Name is are complete!</div>
 
     </div>
 

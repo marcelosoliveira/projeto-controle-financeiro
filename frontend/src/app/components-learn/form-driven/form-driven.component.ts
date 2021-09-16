@@ -32,6 +32,8 @@ export class FormDrivenComponent implements OnInit {
 
     console.log(form);
     console.log(this.client);
+
+    form.reset({ name: "Marcelo" });
   }
 
 }
