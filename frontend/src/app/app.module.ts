@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { TabViewModule } from 'primeng/tabview';
 import { InputTextModule } from 'primeng/inputtext';
@@ -9,6 +10,10 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CalendarModule } from 'primeng/calendar';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,13 +25,11 @@ import { PersonFormComponent } from './components-learn/person-form/person-form.
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
-import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CampoColoridoDirective } from './components-learn/directive/campo-colorido.directive';
 import { PipeLearnComponent } from './components-learn/pipe-learn/pipe-learn.component';
 import { FormDrivenComponent } from './components-learn/form-driven/form-driven.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
-import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -52,11 +55,14 @@ import { CalendarModule } from 'primeng/calendar';
     TabViewModule,
     InputTextModule,
     ButtonModule,
+    SelectButtonModule,
     TableModule,
     TooltipModule,
     InputTextareaModule,
     CalendarModule,
     BrowserAnimationsModule,
+    DropdownModule,
+    InputNumberModule,
     RouterModule.forChild([
       {
         path: '', redirectTo: 'lancamentos', pathMatch: 'full'
