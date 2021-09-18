@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormControl } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { TabViewModule } from 'primeng/tabview';
@@ -32,6 +32,7 @@ import { PipeLearnComponent } from './components-learn/pipe-learn/pipe-learn.com
 import { FormDrivenComponent } from './components-learn/form-driven/form-driven.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
     FormDrivenComponent,
     LancamentoCadastroComponent,
     PessoaCadastroComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,

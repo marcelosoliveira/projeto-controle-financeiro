@@ -39,7 +39,24 @@
 
       <div class="ui-g-12 ui-md-9 ui-fluid" style="margin-top: 10px;">
         <label style="display: block;">Descrição</label>
-        <input class="col-12" type="text" pInputText>
+        <input
+          class="col-12"
+          type="text"
+          pInputText
+          name="descricao"
+          ngModel
+          #descricao="ngModel"
+          required
+          minlength="5"
+        >
+
+        <app-message [control]="descricao" error="required" text="Informe uma descrição!">
+        </app-message>
+
+        <app-message [control]="descricao" error="minlength"
+          text="Mínimo de {{ descricao.errors?.minlength?.requiredLength }} caracteres!">
+        </app-message>
+
       </div>
       <div class="col-12" style="margin-top: 10px;">
         <label style="display: block;">Valor</label>
