@@ -1,6 +1,5 @@
 <div class="container">
-  <form autocomplete="off">
-
+  <form autocomplete="off" #formValid="ngForm">
     <div class="ui-g">
       <div class="ui-g-12">
         <h1>Nova Pessoa</h1>
@@ -8,17 +7,36 @@
 
       <div class="ui-g-12 ui-md-9 ui-fluid" style="margin-top: 10px;">
         <label style="display: block;">Nome</label>
-        <input class="col-12" type="text" pInputText>
+        <input class="col-12" type="text" pInputText
+          name="name" ngModel #name="ngModel" required minlength="5">
+
+        <app-message [control]="name" error="required" text="Informe um nome!">
+        </app-message>
+
+        <app-message [control]="name" error="minlength"
+          text="Mínimo de {{ name.errors?.minlength?.requiredLength }} caracteres!">
+        </app-message>
+
       </div>
 
       <div class="col-12" style="display: flex; margin-top: 10px;">
         <div class="col-9">
           <label style="display: block;">Logradouro</label>
-          <input class="col-11" type="text" pInputText>
+          <input class="col-11" type="text" pInputText
+          name="logradouro" ngModel #logradouro="ngModel" required>
+
+          <app-message [control]="logradouro" error="required" text="Informe um logradouro!">
+          </app-message>
+
         </div>
         <div class="col-3">
           <label style="display: block;">Número</label>
-          <input class="col-12" type="text" pInputText>
+          <input class="col-12" type="text" pInputText
+            name="numero" ngModel #numero="ngModel" required>
+
+          <app-message [control]="numero" error="required" text="Informe um numero!">
+          </app-message>
+
         </div>
       </div>
 
@@ -29,28 +47,48 @@
         </div>
         <div class="col-4">
           <label style="display: block;">Bairro</label>
-          <input class="col-11" type="text" pInputText>
+          <input class="col-11" type="text" pInputText
+            name="bairro" ngModel #bairro="ngModel" required>
+
+            <app-message [control]="bairro" error="required" text="Informe um bairro!">
+            </app-message>
+
         </div>
         <div class="col-4">
           <label style="display: block;">CEP</label>
-          <p-inputMask styleClass="col-12" mask="99.999-999"></p-inputMask>
+          <p-inputMask styleClass="col-12" mask="99.999-999"
+            name="cep" ngModel #cep="ngModel" [required]="true" ></p-inputMask>
+
+            <app-message [control]="cep" error="required" text="Informe um cep!">
+            </app-message>
+
         </div>
       </div>
 
       <div class="col-12" style="display: flex; margin-top: 10px;">
         <div class="col-6">
           <label style="display: block;">Cidade</label>
-          <input class="col-11" type="text" pInputText>
+          <input class="col-11" type="text" pInputText
+            name="cidade" ngModel #cidade="ngModel" required>
+
+            <app-message [control]="cidade" error="required" text="Informe uma cidade!">
+            </app-message>
+
         </div>
         <div class="col-6">
           <label style="display: block;">Estado</label>
-          <input class="col-12" type="text" pInputText>
+          <input class="col-12" type="text" pInputText
+            name="estado" ngModel #estado="ngModel" required>
+
+            <app-message [control]="estado" error="required" text="Informe um estado!">
+            </app-message>
+
         </div>
       </div>
 
     </div>
     <div style="margin-top: 10px;">
-      <button pButton type="submit" label="Salvar"></button>
+      <button pButton type="submit" label="Salvar" [disabled]="formValid.invalid"></button>
       <button pButton type="button" label="Novo" style="margin-left: 10px;"></button>
       <a [routerLink]="['/pessoas']" style="margin-left: 10px;">Voltar para pesquisa</a>
     </div>
