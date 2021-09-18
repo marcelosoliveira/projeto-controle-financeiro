@@ -1,5 +1,5 @@
 <div class="container">
-  <form autocomplete="off">
+  <form autocomplete="off" #formValid="ngForm">
 
     <div class="ui-g">
       <div class="ui-g-12">
@@ -18,8 +18,14 @@
           [inline]="false"
           [readonlyInput]="false"
           [showIcon]="false"
+          name="dataVencimento" ngModel
+          #dataVencimento="ngModel" [required]="true"
         >
         </p-calendar>
+
+        <app-message [control]="dataVencimento" error="required" text="Informe uma data de vencimento!">
+        </app-message>
+
         </div>
         <div class="ui-g-6 ui-md-3 ui-fluid" style="margin-left: 10px;">
           <label
@@ -63,8 +69,14 @@
         <p-inputNumber
           styleClass="col-12"
           placeholder="R$ 0,00"
+          name="valor" ngModel
+          #valor="ngModel" [required]="true"
         >
         </p-inputNumber>
+
+        <app-message [control]="valor" error="required" text="Informe um valor!">
+        </app-message>
+
       </div>
 
       <div class="col-12" style="display: flex; margin-top: 10px;">
@@ -76,8 +88,14 @@
             placeholder="Selecione"
             styleClass="col-11"
             #categoria
+            name="categoria" ngModel
+            #categoriaValid="ngModel" [required]="true"
           >
           </p-dropdown>
+
+          <app-message [control]="categoriaValid" error="required" text="Informe uma categoria!">
+          </app-message>
+
         </div>
         <div class="col-6">
           <label style="display: block;">Pessoa {{pessoa.value}}</label>
@@ -88,8 +106,14 @@
             placeholder="Selecione"
             styleClass="col-12"
             #pessoa
+            name="pessoa" ngModel
+            #pessoaValid="ngModel" [required]="true"
           >
           </p-dropdown>
+
+          <app-message [control]="pessoaValid" error="required" text="Informe uma pessoa!">
+          </app-message>
+
         </div>
       </div>
 
@@ -100,7 +124,7 @@
 
     </div>
     <div style="margin: 10px 0 20px 0;">
-      <button pButton type="submit" label="Salvar"></button>
+      <button pButton type="submit" label="Salvar" [disabled]="formValid.invalid"></button>
       <button pButton type="button" label="Novo" style="margin-left: 10px;"></button>
       <a [routerLink]="['/lancamentos']" style="margin-left: 10px;">Voltar para pesquisa</a>
     </div>
