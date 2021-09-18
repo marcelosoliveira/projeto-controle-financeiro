@@ -5,13 +5,25 @@
     </div>
 
     <div class="ui-g-12" style="display: flex;">
-      <div class="ui-g-12 ui-md-3 ui-fluid">
+      <div class="ui-g-6ui-md-3 ui-fluid">
         <label style="display: block;">Vencimento</label>
-        <input class="col-11" type="text" pInputText>
+        <p-calendar
+        dateFormat="dd/mm/yy"
+        [inline]="false"
+        [readonlyInput]="false"
+        [showIcon]="false"
+      >
+      </p-calendar>
       </div>
-      <div class="ui-g-12 ui-md-3 ui-fluid">
+      <div class="ui-g-6 ui-md-3 ui-fluid" style="margin-left: 10px;">
         <label style="display: block;">Recebimento</label>
-        <input class="col-12" type="text" pInputText>
+        <p-calendar
+          dateFormat="dd/mm/yy"
+          [inline]="false"
+          [readonlyInput]="false"
+          [showIcon]="false"
+        >
+        </p-calendar>
       </div>
     </div>
 

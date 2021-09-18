@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { TabViewModule } from 'primeng/tabview';
@@ -25,6 +26,7 @@ import { CampoColoridoDirective } from './components-learn/directive/campo-color
 import { PipeLearnComponent } from './components-learn/pipe-learn/pipe-learn.component';
 import { FormDrivenComponent } from './components-learn/form-driven/form-driven.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
     TableModule,
     TooltipModule,
     InputTextareaModule,
+    CalendarModule,
+    BrowserAnimationsModule,
     RouterModule.forChild([
       {
         path: '', redirectTo: 'lancamentos', pathMatch: 'full'
