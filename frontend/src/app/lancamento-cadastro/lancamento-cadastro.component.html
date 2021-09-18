@@ -1,88 +1,92 @@
 <div class="container">
-  <div class="ui-g">
-    <div class="ui-g-12">
-      <h1>Novo Lançamento</h1>
-    </div>
+  <form autocomplete="off">
 
-    <div class="ui-g-12" style="margin-top: 10px;">
-      <p-selectButton [options]="tipos" #tipo></p-selectButton>
-    </div>
-
-    <div class="ui-g-12" style="display: flex; margin-top: 10px;">
-      <div class="ui-g-6ui-md-3 ui-fluid">
-        <label style="display: block;">Vencimento</label>
-        <p-calendar
-        dateFormat="dd/mm/yy"
-        [inline]="false"
-        [readonlyInput]="false"
-        [showIcon]="false"
-      >
-      </p-calendar>
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Novo Lançamento</h1>
       </div>
-      <div class="ui-g-6 ui-md-3 ui-fluid" style="margin-left: 10px;">
-        <label
-          style="display: block;"
-        >
-          {{ tipo.value === "RECEITA" ? "Recebimento" : "Pagamento"}}
-        </label>
-        <p-calendar
+
+      <div class="ui-g-12" style="margin-top: 10px;">
+        <p-selectButton [options]="tipos" #tipo></p-selectButton>
+      </div>
+
+      <div class="ui-g-12" style="display: flex; margin-top: 10px;">
+        <div class="ui-g-6ui-md-3 ui-fluid">
+          <label style="display: block;">Vencimento</label>
+          <p-calendar
           dateFormat="dd/mm/yy"
           [inline]="false"
           [readonlyInput]="false"
           [showIcon]="false"
         >
         </p-calendar>
+        </div>
+        <div class="ui-g-6 ui-md-3 ui-fluid" style="margin-left: 10px;">
+          <label
+            style="display: block;"
+          >
+            {{ tipo.value === "RECEITA" ? "Recebimento" : "Pagamento"}}
+          </label>
+          <p-calendar
+            dateFormat="dd/mm/yy"
+            [inline]="false"
+            [readonlyInput]="false"
+            [showIcon]="false"
+          >
+          </p-calendar>
+        </div>
       </div>
-    </div>
 
-    <div class="ui-g-12 ui-md-9 ui-fluid" style="margin-top: 10px;">
-      <label style="display: block;">Descrição</label>
-      <input class="col-12" type="text" pInputText>
-    </div>
-    <div class="col-12" style="margin-top: 10px;">
-      <label style="display: block;">Valor</label>
-      <p-inputNumber
-        styleClass="col-12"
-        placeholder="R$ 0,00"
-      >
-      </p-inputNumber>
-    </div>
-
-    <div class="col-12" style="display: flex; margin-top: 10px;">
-      <div class="col-6">
-        <label style="display: block;">Categoria {{categoria.value}}</label>
-        <p-dropdown
-          [options]="categorias"
-          [autoDisplayFirst]="false"
-          placeholder="Selecione"
-          styleClass="col-11"
-          #categoria
-        >
-        </p-dropdown>
+      <div class="ui-g-12 ui-md-9 ui-fluid" style="margin-top: 10px;">
+        <label style="display: block;">Descrição</label>
+        <input class="col-12" type="text" pInputText>
       </div>
-      <div class="col-6">
-        <label style="display: block;">Pessoa {{pessoa.value}}</label>
-        <p-dropdown
-          [options]="pessoas"
-          [autoDisplayFirst]="false"
-          [filter]="true"
-          placeholder="Selecione"
+      <div class="col-12" style="margin-top: 10px;">
+        <label style="display: block;">Valor</label>
+        <p-inputNumber
           styleClass="col-12"
-          #pessoa
+          placeholder="R$ 0,00"
         >
-        </p-dropdown>
+        </p-inputNumber>
       </div>
+
+      <div class="col-12" style="display: flex; margin-top: 10px;">
+        <div class="col-6">
+          <label style="display: block;">Categoria {{categoria.value}}</label>
+          <p-dropdown
+            [options]="categorias"
+            [autoDisplayFirst]="false"
+            placeholder="Selecione"
+            styleClass="col-11"
+            #categoria
+          >
+          </p-dropdown>
+        </div>
+        <div class="col-6">
+          <label style="display: block;">Pessoa {{pessoa.value}}</label>
+          <p-dropdown
+            [options]="pessoas"
+            [autoDisplayFirst]="false"
+            [filter]="true"
+            placeholder="Selecione"
+            styleClass="col-12"
+            #pessoa
+          >
+          </p-dropdown>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-fluid" style="margin-top: 10px;">
+        <label style="display: block;">Observação</label>
+        <textarea class="col-12" type="text" pInputTextarea rows="3"></textarea>
+      </div>
+
+    </div>
+    <div style="margin: 10px 0 20px 0;">
+      <button pButton type="submit" label="Salvar"></button>
+      <button pButton type="button" label="Novo" style="margin-left: 10px;"></button>
+      <a [routerLink]="['/lancamentos']" style="margin-left: 10px;">Voltar para pesquisa</a>
     </div>
 
-    <div class="ui-g-12 ui-fluid" style="margin-top: 10px;">
-      <label style="display: block;">Observação</label>
-      <textarea class="col-12" type="text" pInputTextarea rows="3"></textarea>
-    </div>
-
-  </div>
-  <div style="margin: 10px 0 20px 0;">
-    <button pButton type="submit" label="Salvar"></button>
-    <button pButton type="button" label="Novo" style="margin-left: 10px;"></button>
-    <a [routerLink]="['/lancamentos']" style="margin-left: 10px;">Voltar para pesquisa</a>
-  </div>
+  </form>
 </div>
