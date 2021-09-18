@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <h1>Nova Pessoa</h1>
+    </div>
+
+    <div class="ui-g-12 ui-md-9 ui-fluid" style="margin-top: 10px;">
+      <label style="display: block;">Nome</label>
+      <input class="col-12" type="text" pInputText>
+    </div>
+
+    <div class="col-12" style="display: flex; margin-top: 10px;">
+      <div class="col-8">
+        <label style="display: block;">Logradouro</label>
+        <input class="col-11" type="text" pInputText>
+      </div>
+      <div class="col-4">
+        <label style="display: block;">Número</label>
+        <input class="col-12" type="text" pInputText>
+      </div>
+    </div>
+
+    <div class="col-12" style="display: flex; margin-top: 10px;">
+      <div class="col-4">
+        <label style="display: block;">Complemento</label>
+        <input class="col-11" type="text" pInputText>
+      </div>
+      <div class="col-4">
+        <label style="display: block;">Bairro</label>
+        <input class="col-11" type="text" pInputText>
+      </div>
+      <div class="col-4">
+        <label style="display: block;">CEP</label>
+        <input class="col-12" type="text" pInputText>
+      </div>
+    </div>
+
+    <div class="col-12" style="display: flex; margin-top: 10px;">
+      <div class="col-6">
+        <label style="display: block;">Cidade</label>
+        <input class="col-11" type="text" pInputText>
+      </div>
+      <div class="col-6">
+        <label style="display: block;">Estado</label>
+        <input class="col-12" type="text" pInputText>
+      </div>
+    </div>
+
+  </div>
+  <div style="margin-top: 10px;">
+    <button pButton type="submit" label="Salvar"></button>
+    <button pButton type="button" label="Novo" style="margin-left: 10px;"></button>
+    <a [routerLink]="['/pessoas']" style="margin-left: 10px;">Voltar para pesquisa</a>
+  </div>
+</div>

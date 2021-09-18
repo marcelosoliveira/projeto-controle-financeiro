@@ -30,6 +30,7 @@ import { CampoColoridoDirective } from './components-learn/directive/campo-color
 import { PipeLearnComponent } from './components-learn/pipe-learn/pipe-learn.component';
 import { FormDrivenComponent } from './components-learn/form-driven/form-driven.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
+import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
     PipeLearnComponent,
     FormDrivenComponent,
     LancamentoCadastroComponent,
+    PessoaCadastroComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,9 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
       },
       {
         path: 'pessoas', component: PessoasPesquisaComponent,
+      },
+      {
+        path: 'pessoas/novo', component: PessoaCadastroComponent,
       },
       {
         path: 'lancamentos', component: LancamentosPesquisaComponent,
