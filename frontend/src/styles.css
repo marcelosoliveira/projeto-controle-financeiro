@@ -23,22 +23,3 @@ label {
     margin: 0 auto;
   }
 }
-
-.col-valor {
-  width: 120px;
-  text-align-last: right;
-}
-
-.col-data {
-  width: 120px;
-  text-align-last: center;
-}
-
-.col-acoes {
-  width: 120px;
-  text-align-last: center;
-}
-
-.button-fa{
-  margin-right: 10px;
-}

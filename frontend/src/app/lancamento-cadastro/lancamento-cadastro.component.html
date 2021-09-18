@@ -1,5 +1,49 @@
-<p>lancamento-cadastro works!</p>
+<div class="container">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <h1>Novo Lançamento</h1>
+    </div>
 
-<br />
+    <div class="ui-g-12" style="display: flex;">
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label style="display: block;">Vencimento</label>
+        <input class="col-11" type="text" pInputText>
+      </div>
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label style="display: block;">Recebimento</label>
+        <input class="col-12" type="text" pInputText>
+      </div>
+    </div>
 
-<button pButton [routerLink]="['/lancamentos']" label="Back"></button>
+    <div class="ui-g-12 ui-md-9 ui-fluid" style="margin-top: 10px;">
+      <label style="display: block;">Descrição</label>
+      <input class="col-12" type="text" pInputText>
+    </div>
+    <div class="ui-g-12 ui-md-3 ui-fluid" style="margin-top: 10px;">
+      <label style="display: block;">Valor</label>
+      <input class="col-12" type="text" pInputText placeholder="0,00">
+    </div>
+
+    <div class="ui-g-12 ui-fluid" style="display: flex; margin-top: 10px;">
+      <div class="col-6">
+        <label style="display: block;">Categoria</label>
+        <input class="col-11" type="text" pInputText>
+      </div>
+      <div class="col-6">
+        <label style="display: block;">Pessoa</label>
+        <input class="col-12" type="text" pInputText>
+      </div>
+    </div>
+
+    <div class="ui-g-12 ui-fluid" style="margin-top: 10px;">
+      <label style="display: block;">Observação</label>
+      <textarea class="col-12" type="text" pInputTextarea rows="3"></textarea>
+    </div>
+
+  </div>
+  <div style="margin-top: 10px;">
+    <button pButton type="submit" label="Salvar"></button>
+    <button pButton type="button" label="Novo" style="margin-left: 10px;"></button>
+    <a [routerLink]="['/lancamentos']" style="margin-left: 10px;">Voltar para pesquisa</a>
+  </div>
+</div>
