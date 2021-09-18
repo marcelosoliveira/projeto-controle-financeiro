@@ -14,6 +14,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { InputMaskModule } from 'primeng/inputmask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -65,6 +66,7 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
     BrowserAnimationsModule,
     DropdownModule,
     InputNumberModule,
+    InputMaskModule,
     RouterModule.forChild([
       {
         path: '', redirectTo: 'lancamentos', pathMatch: 'full'
