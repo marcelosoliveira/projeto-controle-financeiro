@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LancamentosGridComponent implements OnInit {
 
   @Input()
-  public lancamentos: any = []
+  public lancamentos: any = [];
 
   constructor() { }
 

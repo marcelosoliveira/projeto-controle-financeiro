@@ -1,0 +1,52 @@
+<p-table
+  [value]="pessoas"
+  [paginator]="true"
+  [rows]="3"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+  [responsive]="true"
+  styleClass="p-datatable-gridlines"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nome</th>
+      <th>Cidade</th>
+      <th>Estado</th>
+      <th>Status</th>
+      <th style="text-align: center;">Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-pessoa>
+    <tr>
+      <td>{{ pessoa.nome }}</td>
+      <td>{{ pessoa.cidade }}</td>
+      <td>{{ pessoa.estado }}</td>
+      <td>
+        <a
+          href="javascript:;"
+          class="status-ativo"
+          [pTooltip]="pessoa.status ? 'Desativar' : 'Ativar'"
+          tooltipPosition="top"
+          (click)="pessoa.status = !pessoa.status"
+        >
+          {{ pessoa.status ? 'Ativo' : 'Inativo' }}
+        </a>
+      </td>
+      <td class="col-acoes">
+        <button
+          class="button-fa"
+          pButton icon="fa fa-pencil"
+          pTooltip="Editar"
+          tooltipPosition="top"
+        >
+        </button>
+        <button
+          pButton icon="fa fa-trash"
+          pTooltip="Excluir"
+          tooltipPosition="top"
+        >
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
