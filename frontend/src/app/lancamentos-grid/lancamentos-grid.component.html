@@ -1,0 +1,49 @@
+<p-table
+  [value]="lancamentos"
+  [paginator]="true"
+  [rows]="3"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+  [responsive]="true"
+  styleClass="p-datatable-gridlines"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Pessoa</th>
+      <th>Descrição</th>
+      <th>Vencimento</th>
+      <th>Pagamento</th>
+      <th style="text-align: center;">Valor</th>
+      <th style="text-align: center;">Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-lancamento>
+    <tr>
+      <td>{{ lancamento.pessoa }}</td>
+      <td>{{ lancamento.descricao }}</td>
+      <td class="col-data">{{ lancamento.dataVencimento | date: 'dd/MM/y' }}</td>
+      <td class="col-data">{{ lancamento.dataPagamento | date: 'dd/MM/y' }}</td>
+      <td
+        class="col-valor"
+        [style.color]="lancamento.tipo === 'DESPESA' ? 'red' : 'blue'"
+      >
+        {{ lancamento.valor | currency: 'BRL': true: '1.2-2' }}
+      </td>
+      <td class="col-acoes">
+        <button
+          class="button-fa"
+          pButton icon="fa fa-pencil"
+          pTooltip="Editar"
+          tooltipPosition="top"
+        >
+        </button>
+        <button
+          pButton icon="fa fa-trash"
+          pTooltip="Excluir"
+          tooltipPosition="top"
+        >
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

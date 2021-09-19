@@ -33,6 +33,7 @@ import { FormDrivenComponent } from './components-learn/form-driven/form-driven.
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { MessageComponent } from './message/message.component';
+import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { MessageComponent } from './message/message.component';
     LancamentoCadastroComponent,
     PessoaCadastroComponent,
     MessageComponent,
+    LancamentosGridComponent,
   ],
   imports: [
     BrowserModule,
