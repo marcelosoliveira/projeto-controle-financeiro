@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, FormControl } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { TabViewModule } from 'primeng/tabview';
@@ -16,20 +16,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputMaskModule } from 'primeng/inputmask';
 
+import { LearnsModule } from './learns/learns.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './components-learn/hello/hello.component';
-import { WelcomeComponent } from './components-learn/welcome/welcome.component';
-import { AddNameComponent } from './components-learn/add-name/add-name.component';
-import { PersonCardComponent } from './components-learn/person-card/person-card.component';
-import { PersonFormComponent } from './components-learn/person-form/person-form.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { CampoColoridoDirective } from './components-learn/directive/campo-colorido.directive';
-import { PipeLearnComponent } from './components-learn/pipe-learn/pipe-learn.component';
-import { FormDrivenComponent } from './components-learn/form-driven/form-driven.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { MessageComponent } from './message/message.component';
@@ -39,18 +33,10 @@ import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HelloComponent,
-    WelcomeComponent,
-    AddNameComponent,
-    PersonCardComponent,
-    PersonFormComponent,
     LancamentosPesquisaComponent,
     NavbarComponent,
     PessoasPesquisaComponent,
     NotFoundComponent,
-    CampoColoridoDirective,
-    PipeLearnComponent,
-    FormDrivenComponent,
     LancamentoCadastroComponent,
     PessoaCadastroComponent,
     MessageComponent,
@@ -61,6 +47,7 @@ import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    LearnsModule,
     TabViewModule,
     InputTextModule,
     ButtonModule,
