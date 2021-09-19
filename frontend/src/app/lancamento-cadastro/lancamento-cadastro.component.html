@@ -14,14 +14,14 @@
         <div class="ui-g-6ui-md-3 ui-fluid">
           <label style="display: block;">Vencimento</label>
           <p-calendar
-          dateFormat="dd/mm/yy"
-          [inline]="false"
-          [readonlyInput]="false"
-          [showIcon]="false"
-          name="dataVencimento" ngModel
-          #dataVencimento="ngModel" [required]="true"
-        >
-        </p-calendar>
+            dateFormat="dd/mm/yy"
+            [inline]="false"
+            [readonlyInput]="false"
+            [showIcon]="false"
+            name="dataVencimento" ngModel
+            #dataVencimento="ngModel" [required]="true"
+          >
+          </p-calendar>
 
         <app-message [control]="dataVencimento" error="required" text="Informe uma data de vencimento!">
         </app-message>
@@ -68,7 +68,11 @@
         <label style="display: block;">Valor</label>
         <p-inputNumber
           styleClass="col-12"
-          placeholder="R$ 0,00"
+          placeholder="0,00"
+          mode="decimal"
+          locale="pt-BR"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"
           name="valor" ngModel
           #valor="ngModel" [required]="true"
         >
