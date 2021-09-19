@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { TabViewModule } from 'primeng/tabview';
+
 import { HelloComponent } from './components-learn/hello/hello.component';
 import { WelcomeComponent } from './components-learn/welcome/welcome.component';
 import { AddNameComponent } from './components-learn/add-name/add-name.component';
@@ -26,6 +28,7 @@ import { FormDrivenComponent } from './components-learn/form-driven/form-driven.
   imports: [
     CommonModule,
     FormsModule,
+    TabViewModule
   ],
   exports: [
     HelloComponent,
@@ -36,6 +39,7 @@ import { FormDrivenComponent } from './components-learn/form-driven/form-driven.
     CampoColoridoDirective,
     PipeLearnComponent,
     FormDrivenComponent,
+    TabViewModule
   ]
 })
 export class LearnsModule { }
