@@ -13,7 +13,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 
-import { MessageModule } from '../message/message.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
@@ -28,7 +28,7 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
   ],
   imports: [
     FormsModule,
-    MessageModule,
+    SharedModule,
     InputTextModule,
     ButtonModule,
     SelectButtonModule,
