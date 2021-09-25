@@ -12,6 +12,7 @@ import { PersonFormComponent } from './components-learn/person-form/person-form.
 import { CampoColoridoDirective } from './components-learn/directive/campo-colorido.directive';
 import { PipeLearnComponent } from './components-learn/pipe-learn/pipe-learn.component';
 import { FormDrivenComponent } from './components-learn/form-driven/form-driven.component';
+import { FuncionarioFormComponent } from './components-learn/funcionario-form/funcionario-form.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FormDrivenComponent } from './components-learn/form-driven/form-driven.
     CampoColoridoDirective,
     PipeLearnComponent,
     FormDrivenComponent,
+    FuncionarioFormComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { FormDrivenComponent } from './components-learn/form-driven/form-driven.
     CampoColoridoDirective,
     PipeLearnComponent,
     FormDrivenComponent,
+    FuncionarioFormComponent,
     TabViewModule
   ]
 })
