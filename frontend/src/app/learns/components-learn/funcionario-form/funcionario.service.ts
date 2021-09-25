@@ -23,3 +23,9 @@ export class FuncionarioService {
   }
 
 }
+
+export class FuncionarioAbreviadoService extends FuncionarioService {
+  addPerson(name: string): void {
+    super.addPerson(name.substr(0,3) + "...");
+  }
+}
