@@ -1,7 +1,7 @@
-import { LogService } from './components-learn/funcionario-form/log.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { TabViewModule } from 'primeng/tabview';
 
@@ -11,6 +11,7 @@ import {
 import {
   FuncionarioAbreviadoService
 } from './components-learn/funcionario-form/funcionario-abreviado.service';
+import { LogService } from './components-learn/funcionario-form/log.service';
 
 import {
   CampoColoridoDirective
@@ -24,6 +25,7 @@ import { PersonFormComponent } from './components-learn/person-form/person-form.
 import { PipeLearnComponent } from './components-learn/pipe-learn/pipe-learn.component';
 import { FormDrivenComponent } from './components-learn/form-driven/form-driven.component';
 import { FuncionarioFormComponent } from './components-learn/funcionario-form/funcionario-form.component';
+import { CidadesFormComponent } from './components-learn/cidades-form/cidades-form.component';
 
 
 const criarFuncionarioService = () => {
@@ -41,11 +43,13 @@ const criarFuncionarioService = () => {
     PipeLearnComponent,
     FormDrivenComponent,
     FuncionarioFormComponent,
+    CidadesFormComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    TabViewModule
+    TabViewModule,
+    HttpClientModule
   ],
   providers: [
     LogService,
@@ -63,6 +67,7 @@ const criarFuncionarioService = () => {
     PipeLearnComponent,
     FormDrivenComponent,
     FuncionarioFormComponent,
+    CidadesFormComponent,
     TabViewModule
   ]
 })

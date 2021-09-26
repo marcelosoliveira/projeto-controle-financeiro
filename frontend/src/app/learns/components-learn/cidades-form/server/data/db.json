@@ -1,0 +1,16 @@
+{
+  "cidades": [
+    {
+      "name": "Urbelândia",
+      "id": 1
+    },
+    {
+      "name": "São Paulo",
+      "id": 2
+    },
+    {
+      "name": "Fortaleza",
+      "id": 3
+    }
+  ]
+}
