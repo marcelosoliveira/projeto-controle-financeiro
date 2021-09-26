@@ -3,21 +3,27 @@
   <input
       type="text"
       class="form-control"
-      [(ngModel)]="name"
+      ngModel
+      required
+      name="name"
+      #name="ngModel"
       #inputName
   />
+</div>
+<div name="message" class="p-error" *ngIf="name.hasError('required') && name.dirty">
+  Informe um nome!
 </div>
 
 <br />
 
 <div>
   <button
-      (click)='addName(inputName.value)'
-      type="button"
-      class="btn btn-primary"
-      [disabled]="name.length == 0"
-      >
-          Adicionar
+    (click)='addName(inputName.value)'
+    type="button"
+    class="btn btn-primary"
+    [disabled]="name.invalid"
+  >
+    Adicionar
   </button>
 
   <br />

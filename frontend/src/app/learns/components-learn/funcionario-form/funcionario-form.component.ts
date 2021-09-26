@@ -8,7 +8,6 @@ import { FuncionarioService } from './funcionario.service';
 })
 export class FuncionarioFormComponent implements OnInit {
 
-  public name: string = "";
   public persons: any = [];
 
   constructor(private funcionarioService: FuncionarioService) { }
@@ -18,7 +17,6 @@ export class FuncionarioFormComponent implements OnInit {
   }
 
   addName(name: any): void {
-    this.name = "";
     this.funcionarioService.addPerson(name);
   }
 
