@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from './funcionario.service';
+import { LogService } from './log.service';
 
 @Component({
   selector: 'app-funcionario-form',
@@ -10,7 +11,9 @@ export class FuncionarioFormComponent implements OnInit {
 
   public persons: any = [];
 
-  constructor(private funcionarioService: FuncionarioService) { }
+  constructor(
+    private funcionarioService: FuncionarioService,
+  ) { }
 
   ngOnInit(): void {
     this.persons = this.funcionarioService.consultar();

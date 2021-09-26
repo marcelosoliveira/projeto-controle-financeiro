@@ -1,3 +1,4 @@
+import { LogService } from './components-learn/funcionario-form/log.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -5,9 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { TabViewModule } from 'primeng/tabview';
 
 import {
-  FuncionarioAbreviadoService,
-  FuncionarioService
+  FuncionarioService,
 } from './components-learn/funcionario-form/funcionario.service';
+import {
+  FuncionarioAbreviadoService
+} from './components-learn/funcionario-form/funcionario-abreviado.service';
 
 import {
   CampoColoridoDirective
@@ -23,6 +26,9 @@ import { FormDrivenComponent } from './components-learn/form-driven/form-driven.
 import { FuncionarioFormComponent } from './components-learn/funcionario-form/funcionario-form.component';
 
 
+const criarFuncionarioService = () => {
+  return new FuncionarioAbreviadoService(new LogService("LOG"), 5);
+}
 
 @NgModule({
   declarations: [
@@ -42,7 +48,10 @@ import { FuncionarioFormComponent } from './components-learn/funcionario-form/fu
     TabViewModule
   ],
   providers: [
-    { provide: FuncionarioService, useClass: FuncionarioAbreviadoService }
+    LogService,
+    // { provide: FuncionarioService, useClass: FuncionarioAbreviadoService },
+    // { provide: FuncionarioService, useFactory: criarFuncionarioService },
+    { provide: 'LogService', useValue: 'LOG-2' }
   ],
   exports: [
     HelloComponent,
