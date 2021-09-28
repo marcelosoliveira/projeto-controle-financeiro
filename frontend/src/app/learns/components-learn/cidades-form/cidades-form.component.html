@@ -2,13 +2,41 @@
 
   <div class="form-group">
     <label>Cidade</label>
-    <input type="text" class="form-control" #nome>
+    <input
+      type="text"
+      name="inputNome"
+      class="form-control"
+      #nome ngModel
+      #inputNome="ngModel" required
+      minlength="3"
+    >
+  </div>
+
+  <div
+    name="message"
+    class="p-error"
+    *ngIf="inputNome.hasError('required') && inputNome.dirty"
+  >
+    Informe um nome de cidade!
+  </div>
+  <div
+    name="message"
+    class="p-error"
+    *ngIf="inputNome.hasError('minlength') && inputNome.dirty"
+  >
+  Mínimo de {{ inputNome.errors?.minlength?.requiredLength }} caracteres!
   </div>
 
   <br />
 
-  <button type="button" class="btn btn-primary"
-    (click)="adicionar(nome.value); nome.value = ''">Adicionar</button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="adicionar(nome.value); nome.value = ''"
+    [disabled]="inputNome.invalid"
+  >
+    Adicionar
+  </button>
 
   <table class="table" style="margin-top: 20px;">
     <thead>
@@ -23,10 +51,39 @@
         <td>{{ cidade.id }}</td>
         <td>
           <div class="input-group">
-            <input type="text" class="form-control" [(ngModel)]="cidade.name">
+            <div>
+              <input
+                type="text"
+                name="inputNome"
+                class="form-control"
+                [(ngModel)]="cidade.name"
+                ngModel
+                #inputNome="ngModel" required
+                minlength="3"
+              >
+              <div
+                name="message"
+                class="p-error"
+                *ngIf="inputNome.hasError('required') && inputNome.dirty"
+              >
+                Informe um nome de cidade!
+              </div>
+              <div
+                name="message"
+                class="p-error"
+                *ngIf="inputNome.hasError('minlength') && inputNome.dirty"
+              >
+              Mínimo de {{ inputNome.errors?.minlength?.requiredLength }} caracteres!
+              </div>
+            </div>
             <span class="input-group-btn" style="margin-left: 20px;">
-              <button class="btn btn-primary"
-                (click)="atualizar(cidade.id, cidade.name)">Atualizar</button>
+              <button
+                class="btn btn-primary"
+                (click)="atualizar(cidade.id, cidade.name)"
+                [disabled]="inputNome.invalid"
+              >
+                Atualizar
+              </button>
             </span>
           </div>
         </td>
