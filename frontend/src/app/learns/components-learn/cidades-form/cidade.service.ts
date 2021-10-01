@@ -15,12 +15,12 @@ export class CidadeService {
     return this.httpClient.get<any>(this.url);
   }
 
-  adicionar(name: string): Observable<any> {
-    return this.httpClient.post<any>(this.url, { name });
+  adicionar(cidade: any): Observable<any> {
+    return this.httpClient.post<any>(this.url, cidade);
   }
 
-  atualizar(id: number, name: string): Observable<any> {
-    return this.httpClient.put<any>(`${this.url}/${id}`, { name });
+  atualizar(cidade: any): Observable<any> {
+    return this.httpClient.put<any>(`${this.url}/${cidade.id}`, cidade);
   }
 
   excluir(id: number): Observable<any> {

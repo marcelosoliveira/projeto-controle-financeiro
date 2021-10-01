@@ -25,7 +25,7 @@ export class CidadesFormComponent implements OnInit {
   }
 
   adicionar(name: string): void {
-    this.cidadeService.adicionar(name).subscribe({
+    this.cidadeService.adicionar({ name }).subscribe({
       next: cidade => {
         this.consultar();
         alert(`Cidade de ${cidade.name} adicionada!`);
@@ -34,8 +34,8 @@ export class CidadesFormComponent implements OnInit {
     });
   }
 
-  atualizar(id: number, name:string): void {
-    this.cidadeService.atualizar(id, name).subscribe({
+  atualizar(cidade: any): void {
+    this.cidadeService.atualizar(cidade).subscribe({
       next: () => {
         this.consultar();
         alert("Cidade atualizada!");
