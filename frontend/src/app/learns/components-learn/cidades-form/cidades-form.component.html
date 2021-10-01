@@ -85,11 +85,15 @@
                 Atualizar
               </button>
             </span>
+            <span class="input-group-btn" style="margin-left: 20px;">
+              <button
+                class="btn btn-danger"
+                (click)="excluir(cidade.id)"
+              >
+                Excluir
+              </button>
+            </span>
           </div>
-        </td>
-        <td>
-          <button class="btn btn-danger"
-            (click)="excluir(cidade.id)">Excluir</button>
         </td>
       </tr>
     </tbody>
