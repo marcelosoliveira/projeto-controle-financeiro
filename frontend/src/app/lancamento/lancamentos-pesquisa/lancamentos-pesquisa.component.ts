@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LancamentoService } from '../lancamento.service';
 
 @Component({
   selector: 'app-lancamentos-pesquisa',
@@ -24,9 +25,19 @@ export class LancamentosPesquisaComponent implements OnInit {
       dataPagamento: null, valor: 180, pessoa: 'Academia Top' }
   ];
 
-  constructor() { }
+  constructor(private lancamentoService: LancamentoService) { }
 
   ngOnInit(): void {
+    this.pesquisar();
+  }
+
+  pesquisar(): any {
+    this.lancamentoService.pesquisar().subscribe({
+      next: (lancamentos) => console.log(lancamentos),
+    });
+    this.lancamentoService.requestToken().subscribe({
+      next: (tokens) => console.log(tokens),
+    });
   }
 
 }
