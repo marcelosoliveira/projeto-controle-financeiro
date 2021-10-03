@@ -9,13 +9,6 @@ import { Observable } from 'rxjs';
 export class LancamentoService {
 
   private url: string = 'http://localhost:8080/api/v1/lancamentos';
-  private token: string = "";
-
-  // private formData: HttpHeaders = new HttpHeaders()
-  // .append('Authorization', 'Basic YW5ndWxhcjpAbmd1bEByMA==')
-  // .append('Content-Type', 'multipart/form-data');
-  // 'Content-Type': 'application/x-www-form-urlencoded',
-  // 'Authorization': 'Basic ' + Buffer.from('admin:admin').toString('base64')
 
   private request: any = {
     headers: new HttpHeaders({
@@ -25,21 +18,23 @@ export class LancamentoService {
     }),
   };
 
+  private user: string = 'grant_type=password'
+    + '&username=admin@algamoney.com'
+    + '&password=admin';
 
-  private headers: HttpHeaders = new HttpHeaders().append(
-    'Authorization', `Bearer ${this.token}`
-  );
+  private headers: HttpHeaders = new HttpHeaders({
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNjMzMzAzNDU5LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI1dDBJMGZhTVRMZmZDZFFCQWdVcUx5VXNrR1EiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.BfywW_pEyPzVLVoCuVtDVPSk5hVzThzlqIIxBwvv8Bk`,
+  });
 
   constructor(
     private httpClient: HttpClient,
   ) { }
 
-  requestToken(): Observable<any> {
-    return this.httpClient.post<any>(`http://localhost:8080/oauth/token`, {
-      'grant_type': 'password',
-      'username': 'admin@algamoney.com',
-      'password':'admin',
-    }, this.request);
+  async requestToken(): Promise<any> {
+    await this.httpClient.post<any>(`http://localhost:8080/oauth/token`,
+      this.user, this.request).toPromise()
+      .then((token: any) => console.log(token.access_token))
+      .catch((error) => console.error(error.message));
   }
 
   pesquisar(): Observable<any> {
