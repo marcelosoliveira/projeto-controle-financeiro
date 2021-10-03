@@ -32,12 +32,14 @@ export class LancamentosPesquisaComponent implements OnInit {
   }
 
   pesquisar(): any {
-    this.lancamentoService.pesquisar().subscribe({
-      next: (lancamentos) => console.log(lancamentos),
-    });
     this.lancamentoService.requestToken().subscribe({
       next: (tokens) => console.log(tokens),
+      error: (error) => console.log(error),
     });
+    // this.lancamentoService.pesquisar().subscribe({
+    //   next: (lancamentos) => console.log(lancamentos),
+    //   error: ({ error }) => console.log(error),
+    // });
   }
 
 }

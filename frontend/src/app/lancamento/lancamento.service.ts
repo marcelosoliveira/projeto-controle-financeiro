@@ -18,16 +18,15 @@ export class LancamentoService {
   // 'Authorization': 'Basic ' + Buffer.from('admin:admin').toString('base64')
 
   private request: any = {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-      'Authorization': 'Basic YW5ndWxhcjpAbmd1bEByMA=='
-    },
-    body: 'grant_type=password'
-      + '&username=admin@algamoney.com'
-      + '&password=admin',
+    headers: new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic YW5ndWxhcjpAbmd1bEByMA==',
+      'Accept': '*/*',
+    }),
   };
 
-  private headers: HttpHeaders = new HttpHeaders().set(
+
+  private headers: HttpHeaders = new HttpHeaders().append(
     'Authorization', `Bearer ${this.token}`
   );
 
@@ -36,11 +35,14 @@ export class LancamentoService {
   ) { }
 
   requestToken(): Observable<any> {
-    console.log(this.request);
-    return this.httpClient.post<any>(`http://localhost:8080/oauth/token`, { request: this.request });
+    return this.httpClient.post<any>(`http://localhost:8080/oauth/token`, {
+      'grant_type': 'password',
+      'username': 'admin@algamoney.com',
+      'password':'admin',
+    }, this.request);
   }
 
   pesquisar(): Observable<any> {
-    return this.httpClient.get<any>(`${this.url}`, { headers: this.headers });
+    return this.httpClient.get<any>(`${this.url}?resumo`, { headers: this.headers });
   }
 }
