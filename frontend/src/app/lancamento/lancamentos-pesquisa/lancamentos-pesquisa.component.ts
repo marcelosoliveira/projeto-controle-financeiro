@@ -19,7 +19,6 @@ export class LancamentosPesquisaComponent implements OnInit {
   }
 
   pesquisar(): any {
-    console.log(this.filtro);
     this.lancamentoService.pesquisar(this.filtro)
       .then((data) => this.lancamentos = data);
   }
