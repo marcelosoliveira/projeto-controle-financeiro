@@ -8,7 +8,7 @@
 
     <div class="ui-g-12 ui-fluid">
       <label style="display: block;">Descrição</label>
-      <input class="col-12" pInputText type="text">
+      <input class="col-12" pInputText type="text" #descricao>
     </div>
 
     <div class="ui-g-12">
@@ -20,7 +20,7 @@
     </div>
 
     <div class="ui-g-12">
-      <button pButton type="submit" label="Pesquisar" style="margin-top: 10px;"></button>
+      <button pButton type="submit" (click)="filter(descricao.value)" label="Pesquisar" style="margin-top: 10px;"></button>
     </div>
 
   </div>

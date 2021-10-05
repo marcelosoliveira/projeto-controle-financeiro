@@ -10,6 +10,8 @@ export class LancamentosPesquisaComponent implements OnInit {
 
   public lancamentos: any = [];
 
+  public filtro: any = {};
+
   constructor(private lancamentoService: LancamentoService) { }
 
   ngOnInit(): void {
@@ -17,8 +19,14 @@ export class LancamentosPesquisaComponent implements OnInit {
   }
 
   pesquisar(): any {
-    this.lancamentoService.pesquisar()
+    console.log(this.filtro);
+    this.lancamentoService.pesquisar(this.filtro)
       .then((data) => this.lancamentos = data);
+  }
+
+  filter(params: string): void {
+    this.filtro.descricao = params;
+    this.pesquisar();
   }
 
 }

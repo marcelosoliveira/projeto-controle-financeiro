@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -45,14 +45,18 @@ export class LancamentoService {
       .catch((error) => console.error(error.message));
   }
 
-  async pesquisar(): Promise<any> {
+  async pesquisar(filtro: any): Promise<any> {
+    let params = new HttpParams();
     const headers: HttpHeaders = new HttpHeaders({
       Authorization: `Bearer ${await this.requestToken()}`,
     });
 
-    return await this.httpClient.get<any>(`${this.url}?resumo`, { headers })
-      .toPromise()
-      .then((data) => data.content)
+    if (filtro.descricao) {
+      params = new HttpParams({ fromObject: filtro });
+    }
+
+    return await this.httpClient.get<any>(`${this.url}?resumo`, { headers, params })
+      .toPromise().then((data) => data.content)
       .catch((error) => console.error(error.message));
   }
 }
