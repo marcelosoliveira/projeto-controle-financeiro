@@ -1,7 +1,12 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpParamsOptions } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+export interface LancamentoFiltro {
+  descricao: string;
+  dataVencimentoDe: string;
+  dataVencimentoAte: string;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -26,8 +31,6 @@ export class LancamentoService {
   //   Authorization: `Bearer ${this.requestToken()}`,
   // });
 
-  private headers: HttpHeaders = new HttpHeaders();
-
   constructor(
     private httpClient: HttpClient,
   ) { }
@@ -45,15 +48,15 @@ export class LancamentoService {
       .catch((error) => console.error(error.message));
   }
 
-  async pesquisar(filtro: any): Promise<any> {
-    let params = new HttpParams();
+  async pesquisar(filtro: LancamentoFiltro): Promise<any> {
+    filtro.dataVencimentoDe = filtro.dataVencimentoDe?.split("/").reverse().join("-");
+    filtro.dataVencimentoAte = filtro.dataVencimentoAte?.split("/").reverse().join("-");
+    console.log(filtro);
+    const params = new HttpParams({ fromObject: { ...filtro } });
+
     const headers: HttpHeaders = new HttpHeaders({
       Authorization: `Bearer ${await this.requestToken()}`,
     });
-
-    if (filtro.descricao) {
-      params = new HttpParams({ fromObject: filtro });
-    }
 
     return await this.httpClient.get<any>(`${this.url}?resumo`, { headers, params })
       .toPromise().then((data) => data.content)
