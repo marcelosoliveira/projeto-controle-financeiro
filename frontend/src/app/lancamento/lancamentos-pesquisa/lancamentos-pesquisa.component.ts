@@ -17,10 +17,8 @@ export class LancamentosPesquisaComponent implements OnInit {
   }
 
   pesquisar(): any {
-    this.lancamentoService.pesquisar().subscribe({
-      next: ({ content }) => this.lancamentos = content,
-      error: (error) => console.error(error),
-    });
+    this.lancamentoService.pesquisar()
+      .then((data) => this.lancamentos = data);
   }
 
 }
