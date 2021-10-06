@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams, HttpParamsOptions } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import * as moment from 'moment';
 
 export interface LancamentoFiltro {
   descricao: string;
@@ -49,14 +50,17 @@ export class LancamentoService {
   }
 
   async pesquisar(filtro: LancamentoFiltro): Promise<any> {
-    filtro.dataVencimentoDe = filtro.dataVencimentoDe?.split("/").reverse().join("-");
-    filtro.dataVencimentoAte = filtro.dataVencimentoAte?.split("/").reverse().join("-");
-    console.log(filtro);
-    const params = new HttpParams({ fromObject: { ...filtro } });
+    filtro.dataVencimentoDe = filtro.dataVencimentoDe ?
+      moment(filtro.dataVencimentoDe).format("YYYY-MM-DD") : '';
+    filtro.dataVencimentoAte = filtro.dataVencimentoAte ?
+      moment(filtro.dataVencimentoAte).format("YYYY-MM-DD") : '';
 
     const headers: HttpHeaders = new HttpHeaders({
       Authorization: `Bearer ${await this.requestToken()}`,
     });
+
+    const params = new HttpParams({ fromObject: { ...filtro } });
+
 
     return await this.httpClient.get<any>(`${this.url}?resumo`, { headers, params })
       .toPromise().then((data) => data.content)

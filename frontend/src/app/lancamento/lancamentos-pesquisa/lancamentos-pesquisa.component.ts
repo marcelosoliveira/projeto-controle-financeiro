@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LancamentoFiltro, LancamentoService } from '../lancamento.service';
 
+
 @Component({
   selector: 'app-lancamentos-pesquisa',
   templateUrl: './lancamentos-pesquisa.component.html',
@@ -23,13 +24,9 @@ export class LancamentosPesquisaComponent implements OnInit {
   }
 
   pesquisar(): any {
-    console.log(Date.parse(this.filtro.dataVencimentoAte));
     this.lancamentoService.pesquisar(this.filtro)
-      .then((data) => this.lancamentos = data);
-  }
-
-  test(teste: Date): void {
-    console.log(teste);
+      .then((data) => this.lancamentos = data)
+      .catch((error) => console.error(error.message));
   }
 
 }
