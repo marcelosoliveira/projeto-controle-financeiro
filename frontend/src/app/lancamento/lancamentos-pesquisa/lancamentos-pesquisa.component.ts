@@ -11,6 +11,9 @@ export class LancamentosPesquisaComponent implements OnInit {
 
   public lancamentos: any = [];
 
+  public dataVencimentoDe = '';
+  public dataVencimentoAte = '';
+
   public filtro: LancamentoFiltro = {
     descricao: '',
     dataVencimentoDe: '',
@@ -24,6 +27,9 @@ export class LancamentosPesquisaComponent implements OnInit {
   }
 
   pesquisar(): any {
+    this.filtro.dataVencimentoDe = this.dataVencimentoDe;
+    this.filtro.dataVencimentoAte = this.dataVencimentoAte;
+
     this.lancamentoService.pesquisar(this.filtro)
       .then((data) => this.lancamentos = data)
       .catch((error) => console.error(error.message));
