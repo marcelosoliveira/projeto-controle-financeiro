@@ -11,14 +11,10 @@ export class LancamentosPesquisaComponent implements OnInit {
 
   public lancamentos: any = [];
 
-  public dataVencimentoDe = '';
-  public dataVencimentoAte = '';
+  public dataVencimentoDe: string = '';
+  public dataVencimentoAte: string = '';
 
-  public filtro: LancamentoFiltro = {
-    descricao: '',
-    dataVencimentoDe: '',
-    dataVencimentoAte: '',
-  };
+  public filtro: LancamentoFiltro = new LancamentoFiltro();
 
   constructor(private lancamentoService: LancamentoService) { }
 

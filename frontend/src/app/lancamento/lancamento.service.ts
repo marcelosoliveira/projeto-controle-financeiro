@@ -3,10 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as moment from 'moment';
 
-export interface LancamentoFiltro {
-  descricao: string;
-  dataVencimentoDe: string;
-  dataVencimentoAte: string;
+export class LancamentoFiltro {
+
+  public descricao: string = '';
+  public dataVencimentoDe: string = '';
+  public dataVencimentoAte: string = '';
+
 }
 
 @Injectable({
