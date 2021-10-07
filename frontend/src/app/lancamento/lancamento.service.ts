@@ -8,6 +8,8 @@ export class LancamentoFiltro {
   public descricao: string = '';
   public dataVencimentoDe: string = '';
   public dataVencimentoAte: string = '';
+  public page: number = 0;
+  public size: number = 3;
 
 }
 
@@ -70,7 +72,7 @@ export class LancamentoService {
     const params = new HttpParams({ fromObject: { ...filtro } });
 
     return await this.httpClient.get<any>(`${this.url}?resumo`, { headers, params })
-      .toPromise().then((data) => data.content)
+      .toPromise().then((data) => data)
       .catch((error) => console.error(error.message));
   }
 }

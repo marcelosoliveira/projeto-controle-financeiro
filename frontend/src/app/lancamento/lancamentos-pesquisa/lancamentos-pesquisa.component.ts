@@ -13,21 +13,25 @@ export class LancamentosPesquisaComponent implements OnInit {
 
   public dataVencimentoDe: string = '';
   public dataVencimentoAte: string = '';
+  public totalRegistros: number = 0;
 
   public filtro: LancamentoFiltro = new LancamentoFiltro();
 
   constructor(private lancamentoService: LancamentoService) { }
 
   ngOnInit(): void {
-    this.pesquisar();
   }
 
-  pesquisar(): any {
+  pesquisar(pagina: number): any {
+    this.filtro.page = pagina;
     this.filtro.dataVencimentoDe = this.dataVencimentoDe;
     this.filtro.dataVencimentoAte = this.dataVencimentoAte;
 
     this.lancamentoService.pesquisar(this.filtro)
-      .then((data) => this.lancamentos = data)
+      .then((data) => {
+        this.lancamentos = data.content;
+        this.totalRegistros = data.totalElements;
+      })
       .catch((error) => console.error(error.message));
   }
 

@@ -1,11 +1,14 @@
 <p-table
   [value]="lancamentos"
   [paginator]="true"
-  [rows]="3"
+  [rows]="itensPagina"
+  [lazy]="true"
+  [totalRecords]="totalRegistros"
   [showCurrentPageReport]="true"
   currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
   [responsive]="true"
   styleClass="p-datatable-gridlines"
+  (onLazyLoad)="proximaPagina($event)"
 >
   <ng-template pTemplate="header">
     <tr>

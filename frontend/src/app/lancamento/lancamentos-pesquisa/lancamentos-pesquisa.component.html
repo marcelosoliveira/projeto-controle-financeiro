@@ -2,7 +2,7 @@
 
   <div class="ui-g">
 
-    <form autocomplete="off" (ngSubmit)="pesquisar()">
+    <form autocomplete="off" (ngSubmit)="pesquisar($event)">
 
       <div class="ui-g-12">
         <h1>Lançamentos</h1>
@@ -36,7 +36,13 @@
   <div class="ui-g" style="margin-top: 10px;">
     <div class="ui-g-12">
 
-      <app-lancamentos-grid [lancamentos]="lancamentos"></app-lancamentos-grid>
+      <app-lancamentos-grid
+        [lancamentos]="lancamentos"
+        (pagina)="pesquisar($event)"
+        [itensPagina]="filtro.size"
+        [totalRegistros]="totalRegistros"
+      >
+      </app-lancamentos-grid>
 
     </div>
 
