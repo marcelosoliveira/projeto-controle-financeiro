@@ -2,25 +2,35 @@
 
   <div class="ui-g">
 
-    <div class="ui-g-12">
-      <h1>Pessoas</h1>
-    </div>
+    <form autocomplete="off" (ngSubmit)="pesquisar($event)">
 
-    <div class="ui-g-12 ui-fluid">
-      <label style="display: block;">Nome</label>
-      <input class="col-12" pInputText type="text">
-    </div>
+      <div class="ui-g-12">
+        <h1>Pessoas</h1>
+      </div>
 
-    <div class="ui-g-12">
-      <button pButton type="submit" label="Pesquisar" style="margin-top: 10px;"></button>
-    </div>
+      <div class="ui-g-12 ui-fluid">
+        <label style="display: block;">Nome</label>
+        <input class="col-12" pInputText type="text" name="nome" [(ngModel)]="filtro.nome">
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Pesquisar" style="margin-top: 10px;"></button>
+      </div>
+
+    </form>
 
   </div>
 
   <div class="ui-g" style="margin-top: 10px;">
     <div class="ui-g-12">
 
-      <app-pessoas-grid [pessoas]="pessoas"></app-pessoas-grid>
+      <app-pessoas-grid
+        [pessoas]="pessoas"
+        (pagina)="pesquisar($event)"
+        [totalRegistros]="totalRegistros"
+        [itensPaginas]=filtro.size
+      >
+      </app-pessoas-grid>
 
     </div>
 

@@ -18,15 +18,14 @@ export class LancamentosGridComponent implements OnInit {
   @Input()
   public lancamentos: any = [];
 
-  @Output()
-  public pagina = new EventEmitter<number>();
-
   @Input()
   public itensPagina: number = 0;
 
   @Input()
   public totalRegistros: number = 0;
 
+  @Output()
+  public pagina = new EventEmitter<number>();
 
   constructor() { }
 

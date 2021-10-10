@@ -23,7 +23,7 @@ export class LancamentosPesquisaComponent implements OnInit {
   }
 
   pesquisar(pagina: number): any {
-    this.filtro.page = pagina;
+    this.filtro.page = typeof pagina !== 'number' ? 0 : pagina;
     this.filtro.dataVencimentoDe = this.dataVencimentoDe;
     this.filtro.dataVencimentoAte = this.dataVencimentoAte;
 

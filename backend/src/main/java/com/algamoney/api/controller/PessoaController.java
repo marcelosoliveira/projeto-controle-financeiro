@@ -1,15 +1,17 @@
 package com.algamoney.api.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +33,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/v1/pessoas")
 @AllArgsConstructor
+@CrossOrigin("*")
 public class PessoaController {
 
 	private PessoaRepository pessoaRepository;
@@ -41,8 +44,11 @@ public class PessoaController {
 
 	@GetMapping
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_PESSOA') and #oauth2.hasScope('read')")
-	public List<Pessoa> listAllPessoas(@RequestParam(value = "nome", defaultValue = "", required = false) String nome) {
-		return pessoaRepository.findByNome(nome);
+	public Page<Pessoa> listAllPessoas(
+			@RequestParam(value = "nome", defaultValue = "", required = false) String nome,
+			Pageable pageable) {
+		
+		return pessoaRepository.findByNome(nome, pageable);
 	}
 
 	@PostMapping
