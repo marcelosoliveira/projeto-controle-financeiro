@@ -35,4 +35,12 @@ export class LancamentosPesquisaComponent implements OnInit {
       .catch((error) => console.error(error.message));
   }
 
+  delete(codigo: number): void {
+    this.lancamentoService.delete(codigo)
+      .then((data) => {
+        !data ? alert("Lancamento excluído com sucesso!") : "";
+        this.pesquisar(this.filtro.page);
+      })
+      .catch((error) => console.error(error.message));
+  }
 }

@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 
 import { LazyLoadEvent } from 'primeng/api';
+import { LancamentoService } from '../lancamento.service';
 
 @Component({
   selector: 'app-lancamentos-grid',
@@ -27,7 +28,10 @@ export class LancamentosGridComponent implements OnInit {
   @Output()
   public pagina = new EventEmitter<number>();
 
-  constructor() { }
+  @Output()
+  public delete = new EventEmitter<number>();
+
+  constructor(private lancamentoService: LancamentoService) { }
 
   ngOnInit(): void {
   }
@@ -35,6 +39,10 @@ export class LancamentosGridComponent implements OnInit {
   proximaPagina(event: LazyLoadEvent) {
     const { first, rows } = event
     this.pagina.emit(Number(first) / Number(rows));
+  }
+
+  deleteLancamento(codigo: number): void {
+    this.delete.emit(codigo);
   }
 
 }

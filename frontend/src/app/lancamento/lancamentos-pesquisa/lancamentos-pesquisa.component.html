@@ -39,6 +39,7 @@
       <app-lancamentos-grid
         [lancamentos]="lancamentos"
         (pagina)="pesquisar($event)"
+        (delete)="delete($event)"
         [itensPagina]="filtro.size"
         [totalRegistros]="totalRegistros"
       >

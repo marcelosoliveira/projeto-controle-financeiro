@@ -75,4 +75,14 @@ export class LancamentoService {
       .toPromise().then((data) => data)
       .catch((error) => console.error(error.message));
   }
+
+  async delete(codigo: number): Promise<any> {
+    const headers: HttpHeaders = new HttpHeaders({
+      Authorization: `Bearer ${await this.requestToken()}`,
+    });
+
+    return this.httpClient.delete<any>(`${this.url}/${codigo}`, { headers })
+      .toPromise().then((data) => data)
+      .catch((error) => console.error(error.message));
+  }
 }
