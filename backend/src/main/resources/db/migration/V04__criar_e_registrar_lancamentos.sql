@@ -8,8 +8,12 @@ CREATE TABLE lancamento (
 	tipo VARCHAR(20) NOT NULL,
 	codigo_categoria INTEGER NOT NULL,
 	codigo_pessoa BIGINT(20) NOT NULL,
-	FOREIGN KEY (codigo_categoria) REFERENCES categoria(codigo),
+	FOREIGN KEY (codigo_categoria) REFERENCES categoria(codigo)
+	ON DELETE CASCADE
+        ON UPDATE CASCADE,
 	FOREIGN KEY (codigo_pessoa) REFERENCES pessoa(codigo)
+	ON DELETE CASCADE
+        ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO lancamento (descricao, data_vencimento, data_pagamento, valor, observacao, tipo, codigo_categoria, codigo_pessoa)
