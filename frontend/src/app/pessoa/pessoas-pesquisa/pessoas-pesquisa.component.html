@@ -27,6 +27,7 @@
       <app-pessoas-grid
         [pessoas]="pessoas"
         (pagina)="pesquisar($event)"
+        (delete)="delete($event)"
         [totalRegistros]="totalRegistros"
         [itensPaginas]=filtro.size
       >

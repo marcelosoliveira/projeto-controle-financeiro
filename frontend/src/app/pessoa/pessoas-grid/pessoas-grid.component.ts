@@ -20,6 +20,9 @@ export class PessoasGridComponent implements OnInit {
   @Output()
   public pagina = new EventEmitter<number>();
 
+  @Output()
+  public delete = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -28,6 +31,10 @@ export class PessoasGridComponent implements OnInit {
   proximaPagina(event: LazyLoadEvent) {
     const { first, rows } = event
     this.pagina.emit(Number(first) / Number(rows));
+  }
+
+  deletePessoa(codigo: number): void {
+    this.delete.emit(codigo);
   }
 
 }

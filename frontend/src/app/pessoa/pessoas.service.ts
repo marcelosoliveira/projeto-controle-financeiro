@@ -44,4 +44,14 @@ export class PessoasService {
       .then((data) => data.content)
       .catch((error) => console.error(error.message));
   }
+
+  async delete(codigo: number): Promise<any> {
+    const headers: HttpHeaders = new HttpHeaders({
+      Authorization: `Bearer ${await this.lancamentoService.requestToken()}`,
+    });
+
+    return this.httpclient.delete<any>(`${this.url}/${codigo}`, { headers })
+      .toPromise().then((data) => data)
+      .catch((error) => console.error(error.message));
+  }
 }

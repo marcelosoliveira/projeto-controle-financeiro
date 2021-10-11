@@ -28,4 +28,13 @@ export class PessoasPesquisaComponent implements OnInit {
       .catch((error)=> console.log(error.message));
   }
 
+  delete(codigo: number): void {
+    this.pessoasService.delete(codigo)
+      .then((data) => {
+        !data ? alert("Pessoa excluído com sucesso!") : "";
+        this.pesquisar(this.filtro.page);
+      })
+      .catch((error) => console.error(error.message));
+  }
+
 }
