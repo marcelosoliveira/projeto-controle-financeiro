@@ -28,11 +28,11 @@
         <a
           href="javascript:;"
           class="status-ativo"
-          [pTooltip]="pessoa.status ? 'Desativar' : 'Ativar'"
+          [pTooltip]="pessoa.ativo ? 'Desativar' : 'Ativar'"
           tooltipPosition="top"
-          (click)="pessoa.status = !pessoa.status"
+          (click)="statusPessoa(pessoa.codigo, !pessoa.ativo)"
         >
-          {{ pessoa.status ? 'Ativo' : 'Inativo' }}
+          {{ pessoa.ativo ? 'Ativo' : 'Inativo' }}
         </a>
       </td>
       <td class="col-acoes">

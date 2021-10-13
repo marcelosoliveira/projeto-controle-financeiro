@@ -23,6 +23,9 @@ export class PessoasGridComponent implements OnInit {
   @Output()
   public delete = new EventEmitter<number>();
 
+  @Output()
+  public status = new EventEmitter<object>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -35,6 +38,10 @@ export class PessoasGridComponent implements OnInit {
 
   deletePessoa(codigo: number): void {
     this.delete.emit(codigo);
+  }
+
+  statusPessoa(codigo: number, ativo: boolean): void {
+    this.status.emit({ codigo, ativo });
   }
 
 }

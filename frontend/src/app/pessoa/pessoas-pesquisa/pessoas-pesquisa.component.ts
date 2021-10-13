@@ -28,6 +28,12 @@ export class PessoasPesquisaComponent implements OnInit {
       .catch((error)=> console.log(error.message));
   }
 
+  status(status: object): void {
+    this.pessoasService.status(status)
+      .then(() => this.pesquisar(this.filtro.page))
+      .catch((error) => console.error(error.message));
+  }
+
   delete(codigo: number): void {
     this.pessoasService.delete(codigo)
       .then((data) => {

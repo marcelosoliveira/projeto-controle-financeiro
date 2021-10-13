@@ -54,4 +54,14 @@ export class PessoasService {
       .toPromise().then((data) => data)
       .catch((error) => console.error(error.message));
   }
+
+  async status(status: any): Promise<any> {
+    const headers: HttpHeaders = new HttpHeaders({
+      Authorization: `Bearer ${await this.lancamentoService.requestToken()}`,
+    });
+
+    return this.httpclient.put<any>(`${this.url}/${status.codigo}/ativo`, status.ativo, { headers })
+      .toPromise().then((data) => data)
+      .catch((error) => console.error(error.message));
+  }
 }
