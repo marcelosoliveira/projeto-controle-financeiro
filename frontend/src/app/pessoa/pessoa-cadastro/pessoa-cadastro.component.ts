@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Pessoa } from '../pessoa';
+import { PessoasService } from '../pessoas.service';
 
 @Component({
   selector: 'app-pessoa-cadastro',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PessoaCadastroComponent implements OnInit {
 
-  constructor() { }
+  public pessoa: Pessoa = new Pessoa();
+
+  constructor(private pessoasService: PessoasService) { }
 
   ngOnInit(): void {
+  }
+
+  salvar(): void {
+    this.pessoasService.salvar(this.pessoa)
+      .then((data) => data ? alert(`${data.nome} cadastrada com sucesso`) : "")
+      .catch((error) => console.error(error.message));
+  }
+
+  novo(): void {
+    this.pessoa = new Pessoa();
   }
 
 }

@@ -7,8 +7,10 @@
 
       <div class="ui-g-12 ui-md-9 ui-fluid" style="margin-top: 10px;">
         <label style="display: block;">Nome</label>
-        <input class="col-12" type="text" pInputText
-          name="name" ngModel #name="ngModel" required minlength="5">
+        <input
+          class="col-12" type="text" pInputText
+          name="name" ngModel #name="ngModel"
+          required minlength="5" [(ngModel)]="pessoa.nome">
 
         <app-message [control]="name" error="required" text="Informe um nome!">
         </app-message>
@@ -23,7 +25,8 @@
         <div class="col-9">
           <label style="display: block;">Logradouro</label>
           <input class="col-11" type="text" pInputText
-          name="logradouro" ngModel #logradouro="ngModel" required>
+            name="logradouro" ngModel #logradouro="ngModel"
+            required [(ngModel)]="pessoa.endereco.logradouro">
 
           <app-message [control]="logradouro" error="required" text="Informe um logradouro!">
           </app-message>
@@ -32,7 +35,8 @@
         <div class="col-3">
           <label style="display: block;">Número</label>
           <input class="col-12" type="text" pInputText
-            name="numero" ngModel #numero="ngModel" required>
+            name="numero" ngModel #numero="ngModel"
+            required [(ngModel)]="pessoa.endereco.numero">
 
           <app-message [control]="numero" error="required" text="Informe um numero!">
           </app-message>
@@ -43,12 +47,14 @@
       <div class="col-12" style="display: flex; margin-top: 10px;">
         <div class="col-4">
           <label style="display: block;">Complemento</label>
-          <input class="col-11" type="text" pInputText>
+          <input class="col-11" type="text" pInputText name="complemento"
+            [(ngModel)]="pessoa.endereco.complemento">
         </div>
         <div class="col-4">
           <label style="display: block;">Bairro</label>
           <input class="col-11" type="text" pInputText
-            name="bairro" ngModel #bairro="ngModel" required>
+            name="bairro" ngModel #bairro="ngModel" required
+            [(ngModel)]="pessoa.endereco.bairro">
 
             <app-message [control]="bairro" error="required" text="Informe um bairro!">
             </app-message>
@@ -56,8 +62,9 @@
         </div>
         <div class="col-4">
           <label style="display: block;">CEP</label>
-          <p-inputMask styleClass="col-12" mask="99.999-999"
-            name="cep" ngModel #cep="ngModel" [required]="true" ></p-inputMask>
+          <p-inputMask styleClass="col-12" mask="99999-999"
+            name="cep" ngModel #cep="ngModel" [required]="true"
+            [(ngModel)]="pessoa.endereco.cep"></p-inputMask>
 
             <app-message [control]="cep" error="required" text="Informe um cep!">
             </app-message>
@@ -69,7 +76,8 @@
         <div class="col-6">
           <label style="display: block;">Cidade</label>
           <input class="col-11" type="text" pInputText
-            name="cidade" ngModel #cidade="ngModel" required>
+            name="cidade" ngModel #cidade="ngModel" required
+            [(ngModel)]="pessoa.endereco.cidade">
 
             <app-message [control]="cidade" error="required" text="Informe uma cidade!">
             </app-message>
@@ -78,7 +86,8 @@
         <div class="col-6">
           <label style="display: block;">Estado</label>
           <input class="col-12" type="text" pInputText
-            name="estado" ngModel #estado="ngModel" required>
+            name="estado" ngModel #estado="ngModel" required
+            [(ngModel)]="pessoa.endereco.estado">
 
             <app-message [control]="estado" error="required" text="Informe um estado!">
             </app-message>
@@ -88,8 +97,10 @@
 
     </div>
     <div style="margin-top: 10px;">
-      <button pButton type="submit" label="Salvar" [disabled]="formValid.invalid"></button>
-      <button pButton type="button" label="Novo" style="margin-left: 10px;"></button>
+      <button pButton type="submit" label="Salvar" [disabled]="formValid.invalid"
+        (click)="salvar()"></button>
+      <button pButton type="button" label="Novo" style="margin-left: 10px;"
+        (click)="novo()"></button>
       <a [routerLink]="['/pessoas']" style="margin-left: 10px;">Voltar para pesquisa</a>
     </div>
 

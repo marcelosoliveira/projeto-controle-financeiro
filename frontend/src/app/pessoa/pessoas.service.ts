@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LancamentoService } from '../lancamento/lancamento.service';
+import { Pessoa } from './pessoa';
 
 export class PessoasFiltro {
   public nome: string = '';
@@ -64,4 +65,15 @@ export class PessoasService {
       .toPromise().then((data) => data)
       .catch((error) => console.error(error.message));
   }
+
+  async salvar(pessoa: Pessoa): Promise<any> {
+    const headers: HttpHeaders = new HttpHeaders({
+      Authorization: `Bearer ${await this.lancamentoService.requestToken()}`,
+    });
+
+    return this.httpclient.post<any>(`${this.url}`, pessoa, { headers })
+      .toPromise().then((data) => data)
+      .catch((error) => console.error(error.message));
+  }
+
 }
