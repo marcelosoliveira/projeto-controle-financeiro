@@ -3,12 +3,12 @@ export class Pessoa {
   nome?: string;
   ativo: boolean = false;
   endereco: any = {
-      logradouro:"",
-      numero: "",
-      complemento: "",
-      bairro: "",
-      cep: "",
-      cidade: "",
-      estado: "",
+    logradouro:"",
+    numero: "",
+    complemento: "",
+    bairro: "",
+    cep: "",
+    cidade: "",
+    estado: "",
   }
 }
