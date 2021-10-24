@@ -39,7 +39,7 @@ export class LancamentoCadastroComponent implements OnInit {
 
   getPessoas(): void {
     this.pessoaService.listarTodas()
-      .then((data) => this.pessoas = data)
+      .then((data) => this.pessoas = data.filter((pessoa: any) => pessoa.ativo))
       .catch((error) => console.error(error.message));
   }
 
