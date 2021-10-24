@@ -10,5 +10,5 @@ export class Pessoa {
     cep: "",
     cidade: "",
     estado: "",
-  }
+  };
 }

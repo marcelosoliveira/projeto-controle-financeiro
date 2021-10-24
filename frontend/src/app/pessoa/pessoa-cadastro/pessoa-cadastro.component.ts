@@ -18,7 +18,7 @@ export class PessoaCadastroComponent implements OnInit {
 
   salvar(): void {
     this.pessoasService.salvar(this.pessoa)
-      .then((data) => data ? alert(`${data.nome} cadastrada com sucesso`) : "")
+      .then((data) => data ? alert(`Pessoa cadastrada com sucesso`) : "")
       .catch((error) => console.error(error.message));
   }
 

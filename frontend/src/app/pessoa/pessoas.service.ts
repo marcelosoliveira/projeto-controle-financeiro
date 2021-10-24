@@ -18,7 +18,7 @@ export class PessoasService {
   private url: string = 'http://localhost:8080/api/v1/pessoas'
 
   constructor(
-    private httpclient: HttpClient,
+    private httpClient: HttpClient,
     private lancamentoService: LancamentoService
   ) { };
 
@@ -31,7 +31,7 @@ export class PessoasService {
       fromObject: { ...filtro }
     });
 
-    return this.httpclient.get<any>(this.url, { headers, params }).toPromise()
+    return this.httpClient.get<any>(this.url, { headers, params }).toPromise()
       .then((data) => data)
       .catch((error) => console.error(error.message));
   }
@@ -41,7 +41,7 @@ export class PessoasService {
       'Authorization': `Bearer ${await this.lancamentoService.requestToken()}`
     });
 
-    return this.httpclient.get<any>(this.url, { headers }).toPromise()
+    return this.httpClient.get<any>(this.url, { headers }).toPromise()
       .then((data) => data.content)
       .catch((error) => console.error(error.message));
   }
@@ -51,7 +51,7 @@ export class PessoasService {
       Authorization: `Bearer ${await this.lancamentoService.requestToken()}`,
     });
 
-    return this.httpclient.delete<any>(`${this.url}/${codigo}`, { headers })
+    return this.httpClient.delete<any>(`${this.url}/${codigo}`, { headers })
       .toPromise().then((data) => data)
       .catch((error) => console.error(error.message));
   }
@@ -61,7 +61,7 @@ export class PessoasService {
       Authorization: `Bearer ${await this.lancamentoService.requestToken()}`,
     });
 
-    return this.httpclient.put<any>(`${this.url}/${status.codigo}/ativo`, status.ativo, { headers })
+    return this.httpClient.put<any>(`${this.url}/${status.codigo}/ativo`, status.ativo, { headers })
       .toPromise().then((data) => data)
       .catch((error) => console.error(error.message));
   }
@@ -71,7 +71,7 @@ export class PessoasService {
       Authorization: `Bearer ${await this.lancamentoService.requestToken()}`,
     });
 
-    return this.httpclient.post<any>(`${this.url}`, pessoa, { headers })
+    return this.httpClient.post<any>(`${this.url}`, pessoa, { headers })
       .toPromise().then((data) => data)
       .catch((error) => console.error(error.message));
   }
