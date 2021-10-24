@@ -7,7 +7,8 @@
       </div>
 
       <div class="ui-g-12" style="margin-top: 10px;">
-        <p-selectButton [options]="tipos" #tipo></p-selectButton>
+        <p-selectButton [options]="tipos" name="tipo" #tipo
+          [(ngModel)]="lancamento.tipo"></p-selectButton>
       </div>
 
       <div class="ui-g-12" style="display: flex; margin-top: 10px;">
@@ -20,6 +21,7 @@
             [showIcon]="false"
             name="dataVencimento" ngModel
             #dataVencimento="ngModel" [required]="true"
+            [(ngModel)]="lancamento.dataVencimento"
           >
           </p-calendar>
 
@@ -38,6 +40,8 @@
             [inline]="false"
             [readonlyInput]="false"
             [showIcon]="false"
+            name="dataPagamento"
+            [(ngModel)]="lancamento.dataPagamento"
           >
           </p-calendar>
         </div>
@@ -54,6 +58,7 @@
           #descricao="ngModel"
           required
           minlength="5"
+          [(ngModel)]="lancamento.descricao"
         >
 
         <app-message [control]="descricao" error="required" text="Informe uma descrição!">
@@ -75,6 +80,7 @@
           [maxFractionDigits]="2"
           name="valor" ngModel
           #valor="ngModel" [required]="true"
+          [(ngModel)]="lancamento.valor"
         >
         </p-inputNumber>
 
@@ -87,6 +93,8 @@
         <div class="col-6">
           <label style="display: block;">Categoria {{categoria.value}}</label>
           <p-dropdown
+            optionLabel="nome"
+            optionValue="codigo"
             [options]="categorias"
             [autoDisplayFirst]="false"
             placeholder="Selecione"
@@ -94,6 +102,7 @@
             #categoria
             name="categoria" ngModel
             #categoriaValid="ngModel" [required]="true"
+            [(ngModel)]="lancamento.categoria.codigo"
           >
           </p-dropdown>
 
@@ -104,6 +113,8 @@
         <div class="col-6">
           <label style="display: block;">Pessoa {{pessoa.value}}</label>
           <p-dropdown
+            optionLabel="nome"
+            optionValue="codigo"
             [options]="pessoas"
             [autoDisplayFirst]="false"
             [filter]="true"
@@ -112,6 +123,7 @@
             #pessoa
             name="pessoa" ngModel
             #pessoaValid="ngModel" [required]="true"
+            [(ngModel)]="lancamento.pessoa.codigo"
           >
           </p-dropdown>
 
@@ -123,13 +135,16 @@
 
       <div class="ui-g-12 ui-fluid" style="margin-top: 10px;">
         <label style="display: block;">Observação</label>
-        <textarea class="col-12" type="text" pInputTextarea rows="3"></textarea>
+        <textarea class="col-12" type="text" name="observacao" pInputTextarea rows="3"
+        [(ngModel)]="lancamento.observacao"></textarea>
       </div>
 
     </div>
     <div style="margin: 10px 0 20px 0;">
-      <button pButton type="submit" label="Salvar" [disabled]="formValid.invalid"></button>
-      <button pButton type="button" label="Novo" style="margin-left: 10px;"></button>
+      <button pButton type="submit" label="Salvar"
+        (click)="salvar()" [disabled]="formValid.invalid"></button>
+      <button pButton type="button" label="Novo"
+        (click)="novo()" style="margin-left: 10px;"></button>
       <a [routerLink]="['/lancamentos']" style="margin-left: 10px;">Voltar para pesquisa</a>
     </div>
 

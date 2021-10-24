@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpParamsOptions } from '@angular
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as moment from 'moment';
+import { Lancamento } from './lancamento';
 
 export class LancamentoFiltro {
 
@@ -11,7 +12,7 @@ export class LancamentoFiltro {
   public page: number = 0;
   public size: number = 3;
 
-}
+};
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +39,7 @@ export class LancamentoService {
 
   constructor(
     private httpClient: HttpClient,
-  ) { }
+  ) { };
 
   converterDate(filtro: LancamentoFiltro): LancamentoFiltro {
     filtro.dataVencimentoDe = filtro.dataVencimentoDe ?
@@ -47,7 +48,7 @@ export class LancamentoService {
       moment(filtro.dataVencimentoAte).format('YYYY-MM-DD') : '';
 
     return filtro;
-  }
+  };
 
   async requestToken(): Promise<any> {
     const headers: HttpHeaders = new HttpHeaders({
@@ -60,7 +61,7 @@ export class LancamentoService {
       this.user, { headers }).toPromise()
       .then((token: any) => token.access_token)
       .catch((error) => console.error(error.message));
-  }
+  };
 
   async pesquisar(filtro: LancamentoFiltro): Promise<any> {
     filtro = this.converterDate(filtro);
@@ -74,7 +75,7 @@ export class LancamentoService {
     return await this.httpClient.get<any>(`${this.url}?resumo`, { headers, params })
       .toPromise().then((data) => data)
       .catch((error) => console.error(error.message));
-  }
+  };
 
   async delete(codigo: number): Promise<any> {
     const headers: HttpHeaders = new HttpHeaders({
@@ -84,5 +85,27 @@ export class LancamentoService {
     return this.httpClient.delete<any>(`${this.url}/${codigo}`, { headers })
       .toPromise().then((data) => data)
       .catch((error) => console.error(error.message));
+  };
+
+  async categoria(): Promise<any> {
+    const headers: HttpHeaders = new HttpHeaders({
+      Authorization: `Bearer ${await this.requestToken()}`,
+    });
+
+    return await this.httpClient.get<any>(`http://localhost:8080/api/v1/categorias`, { headers })
+      .toPromise().then((data) => data)
+      .catch((error) => console.error(error.message));
   }
+
+  async salvar(lancamento: Lancamento): Promise<any> {
+    const headers: HttpHeaders = new HttpHeaders({
+      Authorization: `Bearer ${await this.requestToken()}`,
+    });
+
+    return this.httpClient.post<any>(`${this.url}`, lancamento, { headers })
+      .toPromise().then((data) => data)
+      .catch((error) => console.error(error.message));
+  }
+
+
 }
